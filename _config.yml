@@ -1,0 +1,11 @@
+name: ReactiveGrid
+description: ReactiveGrid Blog
+
+permalink: /:year/:month/:day/:title
+paginate: 5
+markdown: maruku
+pygments: true
+destination: dist/
+
+exclude: [.bowerrc, Gemfile, Gemfile.lock, gulpfile.*, node_modules, bower.json,
+          bower, package.json, README.md]
