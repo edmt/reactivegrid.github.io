@@ -16,10 +16,10 @@ notify  = require('gulp-notify')
 #########
 
 # Clean
-# Removes .tmp and dist folders
+# Removes .tmp folder
 gulp.task 'clean', ->
   gulp
-    .src(['.tmp/', 'dist/'], {read: false})
+    .src(['.tmp/'], {read: false})
     .pipe(clean())
 
 # Styles
@@ -74,6 +74,21 @@ gulp.task 'serve', ['clean', 'templates', 'styles', 'scripts'], ->
     .src('./')
     .pipe(notify('Blog ready on http://0.0.0.0:4000'))
     .pipe(exec('jekyll serve'))
+
+# Watch
+# Executes 'build' task, Jekyll with watch option enabled and also
+# it watches for changes in the styles, scripts and markup
+gulp.task 'watch', ->
+  gulp.start('build')
+
+  gulp
+    .src('./')
+    .pipe(notify('Blog ready on http://0.0.0.0:4000'))
+    .pipe(exec('jekyll serve -w'))
+
+  gulp.watch('_scss/**/*.scss', ['styles'])
+  gulp.watch('_scripts/**/*.coffee', ['scripts'])
+  gulp.watch('_templates/**/*.jade', ['templates'])
 
 # Default
 gulp.task 'default', ->
