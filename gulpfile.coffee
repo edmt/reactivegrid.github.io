@@ -16,10 +16,10 @@ notify  = require('gulp-notify')
 #########
 
 # Clean
-# Removes .tmp and dist folders
+# Removes .tmp folder
 gulp.task 'clean', ->
   gulp
-    .src(['.tmp/', 'dist/'], {read: false})
+    .src(['.tmp/'], {read: false})
     .pipe(clean())
 
 # Styles
