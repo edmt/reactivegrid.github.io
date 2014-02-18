@@ -18,8 +18,7 @@ gulp.task 'clean', ->
 gulp.task 'styles', ->
   gulp
     .src('_scss/**/*.scss')
-    .pipe($.sass())
-    .pipe($.mincss())
+    .pipe($.rubySass( style: 'compressed' ))
     .pipe(gulp.dest('css/'))
 
 # Coffee
