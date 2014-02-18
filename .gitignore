@@ -13,8 +13,8 @@ results
 
 npm-debug.log
 node_modules
-.tmp
 bower
+_site
 
 .DS_Store
 .DS_Store?
