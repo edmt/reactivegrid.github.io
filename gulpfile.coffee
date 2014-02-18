@@ -89,4 +89,4 @@ gulp.task 'watch', ->
 
 # Default
 gulp.task 'default', ->
-  gulp.start('serve')
+  gulp.start('watch')
