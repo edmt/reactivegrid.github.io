@@ -1,17 +1,7 @@
 'use strict'
 
-gulp    = require('gulp')
-watch   = require('gulp-watch')
-coffee  = require('gulp-coffee')
-sass    = require('gulp-sass')
-jade    = require('gulp-jade')
-uglify  = require('gulp-uglify')
-concat  = require('gulp-concat')
-plumber = require('gulp-plumber')
-exec    = require('gulp-exec')
-clean   = require('gulp-clean')
-mincss  = require('gulp-minify-css')
-notify  = require('gulp-notify')
+gulp = require('gulp')
+$    = require('gulp-load-plugins')()
 
 #########
 
@@ -20,7 +10,7 @@ notify  = require('gulp-notify')
 gulp.task 'clean', ->
   gulp
     .src(['.tmp/'], {read: false})
-    .pipe(clean())
+    .pipe($.clean())
 
 # Styles
 # 1. Compiles all Sass (scss) files under the _scss folder
@@ -28,8 +18,8 @@ gulp.task 'clean', ->
 gulp.task 'styles', ->
   gulp
     .src('_scss/**/*.scss')
-    .pipe(sass())
-    .pipe(mincss())
+    .pipe($.sass())
+    .pipe($.mincss())
     .pipe(gulp.dest('css/'))
 
 # Coffee
@@ -37,7 +27,7 @@ gulp.task 'styles', ->
 gulp.task 'coffee', ->
   gulp
     .src('_scripts/**/*.coffee')
-    .pipe(coffee({ bare: true }))
+    .pipe($.coffee({ bare: true }))
     .pipe(gulp.dest('.tmp/'))
 
 # Scripts
@@ -46,8 +36,8 @@ gulp.task 'coffee', ->
 gulp.task 'scripts', ['coffee'], ->
   gulp
     .src(['_scripts/**/*.js', '.tmp/**/*.js'])
-    .pipe(concat('main.js'))
-    .pipe(uglify())
+    .pipe($.concat('main.js'))
+    .pipe($.uglify())
     .pipe(gulp.dest('js/'))
 
 # Templates
@@ -55,7 +45,7 @@ gulp.task 'scripts', ['coffee'], ->
 gulp.task 'templates', ->
   gulp
     .src('_templates/**/*.jade')
-    .pipe(jade({ pretty: true }))
+    .pipe($.jade({ pretty: true }))
     .pipe(gulp.dest('./'))
 
 # Build
@@ -64,16 +54,16 @@ gulp.task 'templates', ->
 gulp.task 'build', ['clean', 'templates', 'styles', 'scripts'], ->
   gulp
     .src('./')
-    .pipe(exec('jekyll build'))
-    .pipe(notify('Jekyll site built'))
+    .pipe($.exec('jekyll build'))
+    .pipe($.notify('Jekyll site built'))
 
 # Serve
 # Executes 'jekyll serve' command after the tasks above are finished
 gulp.task 'serve', ['clean', 'templates', 'styles', 'scripts'], ->
   gulp
     .src('./')
-    .pipe(notify('Blog ready on http://0.0.0.0:4000'))
-    .pipe(exec('jekyll serve'))
+    .pipe($.notify('Blog ready on http://0.0.0.0:4000'))
+    .pipe($.exec('jekyll serve'))
 
 # Watch
 # Executes 'build' task, Jekyll with watch option enabled and also
@@ -81,7 +71,7 @@ gulp.task 'serve', ['clean', 'templates', 'styles', 'scripts'], ->
 gulp.task 'watch', ->
   gulp
     .src('./')
-    .pipe(exec('jekyll serve -w'))
+    .pipe($.exec('jekyll serve -w'))
 
   gulp.watch('_scss/**/*.scss', ['styles'])
   gulp.watch('_scripts/**/*.coffee', ['scripts'])
