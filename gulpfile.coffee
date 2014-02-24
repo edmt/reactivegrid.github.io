@@ -9,7 +9,7 @@ $    = require('gulp-load-plugins')()
 # Removes .tmp folder
 gulp.task 'clean', ->
   gulp
-    .src(['.tmp/'], {read: false})
+    .src(['.tmp/', '_site/'], {read: false})
     .pipe($.clean())
 
 # Styles
@@ -17,7 +17,7 @@ gulp.task 'clean', ->
 # 2. Minifies main.css file whit clean-css
 gulp.task 'styles', ->
   gulp
-    .src('_scss/**/*.scss')
+    .src('_scss/main.scss')
     .pipe($.rubySass( style: 'compressed' ))
     .pipe(gulp.dest('css/'))
 
@@ -48,31 +48,15 @@ gulp.task 'templates', ->
     .pipe(gulp.dest('./'))
 
 # Build
-# Executes 'jekyll build' command after the tasks above are finished
-# The configuration for the Jekyll build is in _config.yml file
-gulp.task 'build', ['clean', 'templates', 'styles', 'scripts'], ->
-  gulp
-    .src('./')
-    .pipe($.exec('jekyll build'))
-    .pipe($.notify('Jekyll site built'))
-
-# Serve
-# Executes 'jekyll serve' command after the tasks above are finished
-gulp.task 'serve', ['clean', 'templates', 'styles', 'scripts'], ->
-  gulp
-    .src('./')
-    .pipe($.notify('Blog ready on http://0.0.0.0:4000'))
-    .pipe($.exec('jekyll serve'))
+# 1. Cleans .tmp and _site folders
+# 2. Compiles Jade, CoffeeScript and Sass
+gulp.task 'build', ['clean'], ->
+  gulp.start(['templates', 'styles', 'scripts'])
 
 # Watch
-# Executes 'build' task, Jekyll with watch option enabled and also
-# it watches for changes in the styles, scripts and markup
-gulp.task 'watch', ->
-  gulp
-    .src('./')
-    .pipe($.exec('jekyll serve -w'))
-
-  gulp.watch('_scss/**/*.scss', ['styles'])
+# Watches for changes in the styles, scripts and markup
+gulp.task 'watch', ['clean'], ->
+  gulp.watch('_scss/main.scss', ['styles'])
   gulp.watch('_scripts/**/*.coffee', ['scripts'])
   gulp.watch('_templates/**/*.jade', ['templates'])
 

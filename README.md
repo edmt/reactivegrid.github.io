@@ -7,10 +7,10 @@ Run this commands in the order they are listed.
 
 ```
 brew install node
-```   
+```
 ```
 npm install -g bower
-```  
+```
 ```
 npm install -g gulp
 ```
@@ -29,4 +29,4 @@ The order in which you run the commands doesn't matter.
 =====
 
 ###Quick start
-Run ```gulp serve``` and go to ```http://0.0.0.0:4000``` on your browser.
+Run ```jekyll serve``` and go to ```http://0.0.0.0:4000``` on your browser.
