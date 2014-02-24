@@ -56,13 +56,6 @@ gulp.task 'build', ['clean', 'templates', 'styles', 'scripts'], ->
     .pipe($.exec('jekyll build'))
     .pipe($.notify('Jekyll site built'))
 
-# Serve
-# Executes 'jekyll serve' command after the tasks above are finished
-gulp.task 'serve', ['clean', 'templates', 'styles', 'scripts'], ->
-  gulp
-    .src('./')
-    .pipe($.notify('Blog ready on http://0.0.0.0:4000'))
-    .pipe($.exec('jekyll serve'))
 
 # Watch
 # Executes 'build' task, Jekyll with watch option enabled and also
