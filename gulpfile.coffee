@@ -54,14 +54,9 @@ gulp.task 'build', ['clean'], ->
   gulp.start(['templates', 'styles', 'scripts'])
 
 # Watch
-# Executes 'build' task, Jekyll with watch option enabled and also
-# it watches for changes in the styles, scripts and markup
-gulp.task 'watch', ->
-  gulp
-    .src('./')
-    .pipe($.exec('jekyll serve -w'))
-
-  gulp.watch('_scss/**/*.scss', ['styles'])
+# Watches for changes in the styles, scripts and markup
+gulp.task 'watch', ['clean'], ->
+  gulp.watch('_scss/main.scss', ['styles'])
   gulp.watch('_scripts/**/*.coffee', ['scripts'])
   gulp.watch('_templates/**/*.jade', ['templates'])
 
