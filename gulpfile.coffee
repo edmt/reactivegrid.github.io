@@ -17,7 +17,7 @@ gulp.task 'clean', ->
 # 2. Minifies main.css file whit clean-css
 gulp.task 'styles', ->
   gulp
-    .src('_scss/**/*.scss')
+    .src('_scss/main.scss')
     .pipe($.rubySass( style: 'compressed' ))
     .pipe(gulp.dest('css/'))
 
