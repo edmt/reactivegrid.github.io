@@ -9,7 +9,7 @@ $    = require('gulp-load-plugins')()
 # Removes .tmp folder
 gulp.task 'clean', ->
   gulp
-    .src(['.tmp/'], {read: false})
+    .src(['.tmp/', '_site/'], {read: false})
     .pipe($.clean())
 
 # Styles
