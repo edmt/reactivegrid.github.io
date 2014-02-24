@@ -48,14 +48,10 @@ gulp.task 'templates', ->
     .pipe(gulp.dest('./'))
 
 # Build
-# Executes 'jekyll build' command after the tasks above are finished
-# The configuration for the Jekyll build is in _config.yml file
-gulp.task 'build', ['clean', 'templates', 'styles', 'scripts'], ->
-  gulp
-    .src('./')
-    .pipe($.exec('jekyll build'))
-    .pipe($.notify('Jekyll site built'))
-
+# 1. Cleans .tmp and _site folders
+# 2. Compiles Jade, CoffeeScript and Sass
+gulp.task 'build', ['clean'], ->
+  gulp.start(['templates', 'styles', 'scripts'])
 
 # Watch
 # Executes 'build' task, Jekyll with watch option enabled and also
