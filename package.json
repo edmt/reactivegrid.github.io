@@ -1,21 +1,21 @@
 {
-  "name": "rg-blog",
+  "name": "reactivegrid.github.io",
   "version": "0.4.0",
-  "description": "ReactiveGrid blog",
+  "description": "ReactiveGrid's blog",
   "main": "gulpfile.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adrrian17/rg-blog.git"
+    "url": "https://github.com/ReactiveGrid/reactivegrid.github.io"
   },
   "author": "ReactiveGrid Team",
   "license": "",
   "bugs": {
-    "url": "https://github.com/adrrian17/rg-blog/issues"
+    "url": "https://github.com/ReactiveGrid/reactivegrid.github.io/issues"
   },
-  "homepage": "https://github.com/adrrian17/rg-blog",
+  "homepage": "blog.reactivegrid.com",
   "devDependencies": {
     "coffee-script": "~1.7.1",
     "gulp": "~3.5.2",
