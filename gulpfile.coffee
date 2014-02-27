@@ -18,6 +18,7 @@ gulp.task 'clean', ->
 gulp.task 'styles', ->
   gulp
     .src('_scss/main.scss')
+    .pipe($.plumber())
     .pipe($.rubySass( style: 'compressed' ))
     .pipe(gulp.dest('css/'))
 
@@ -26,6 +27,7 @@ gulp.task 'styles', ->
 gulp.task 'coffee', ->
   gulp
     .src('_scripts/**/*.coffee')
+    .pipe($.plumber())
     .pipe($.coffee({ bare: true }))
     .pipe(gulp.dest('.tmp/'))
 
@@ -35,6 +37,7 @@ gulp.task 'coffee', ->
 gulp.task 'scripts', ['coffee'], ->
   gulp
     .src(['_scripts/**/*.js', '.tmp/**/*.js'])
+    .pipe($.plumber())
     .pipe($.concat('main.js'))
     .pipe($.uglify())
     .pipe(gulp.dest('js/'))
@@ -45,6 +48,7 @@ gulp.task 'templates', ->
   gulp
     .src('_templates/**/*.jade')
     .pipe($.jade({ pretty: true }))
+    .pipe($.plumber())
     .pipe(gulp.dest('./'))
 
 # Build
@@ -55,7 +59,7 @@ gulp.task 'build', ['clean'], ->
 
 # Watch
 # Watches for changes in the styles, scripts and markup
-gulp.task 'watch', ['clean'], ->
+gulp.task 'watch', ['build'], ->
   gulp.watch('_scss/main.scss', ['styles'])
   gulp.watch('_scripts/**/*.coffee', ['scripts'])
   gulp.watch('_templates/**/*.jade', ['templates'])
