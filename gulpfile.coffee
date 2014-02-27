@@ -47,8 +47,8 @@ gulp.task 'scripts', ['coffee'], ->
 gulp.task 'templates', ->
   gulp
     .src('_templates/**/*.jade')
-    .pipe($.jade({ pretty: true }))
     .pipe($.plumber())
+    .pipe($.jade({ pretty: true }))
     .pipe(gulp.dest('./'))
 
 # Build
@@ -61,7 +61,7 @@ gulp.task 'build', ['clean'], ->
 # Watch
 # Watches for changes in the styles, scripts and markup
 gulp.task 'watch', ['build'], ->
-  gulp.watch('_scss/main.scss', ['styles'])
+  gulp.watch('_scss/**/*.scss', ['styles'])
   gulp.watch('_scripts/**/*.coffee', ['scripts'])
   gulp.watch('_templates/**/*.jade', ['templates'])
 
