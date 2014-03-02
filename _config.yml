@@ -1,5 +1,5 @@
-name: ReactiveGrid
-description: ReactiveGrid Blog
+name: Reactive Grid
+description: The Reactive Grid Blog
 
 permalink: /:year/:month/:day/:title
 paginate: 5
