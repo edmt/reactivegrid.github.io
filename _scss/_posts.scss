@@ -1,0 +1,44 @@
+.post {
+  p + p {
+    text-indent: 0;
+    margin-top: 1rem;
+  }
+
+  pre {
+    font-size: 18px;
+  }
+
+  .post-title{
+    a {
+      color: rgba(52, 73, 94,0.8);
+    }
+  }
+
+  .post-data {
+    font-family: 'Cambo', serif;
+    font-size: 20px;
+
+    a {
+      margin: 0 5px 0 5px;
+      color: rgba(189, 195, 199,1.0);
+
+      &:hover {
+        color: rgba(41, 128, 185,1.0);
+      }
+    }
+  }
+
+  .post-body {
+    text-align: justify;
+    font-family: 'Cambo', serif;
+    font-size: 20px;
+
+    a {
+      color: rgba(189, 195, 199,1.0);
+
+      &:hover {
+        color: rgba(41, 128, 185,1.0);
+      }
+    }
+  }
+}

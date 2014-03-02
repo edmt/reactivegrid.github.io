@@ -2,9 +2,9 @@
 layout: default
 title: Your New Jekyll Site
 ---
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">{% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }} »<a href="{{ post.url }}">{{ post.title }}</a></span></li>{% endfor %}
-  </ul>
-</div>
+{% for post in site.posts %}
+<div class="post">
+  <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  <div class="post-data"><span>by<a href="#">{{post.author }}</a>on {{ post.date | date_to_string }}</span><br/><br/></div>
+  <div class="post-body">{{ post.content }}</div>
+</div>{% endfor %}
