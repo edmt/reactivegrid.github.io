@@ -8,8 +8,6 @@
   .post-data
     span by
       a(href='#'){{page.author }}
-      | on {{ page.date | date_to_string }}
-    br
-    br
+      | — {{ page.date | date_to_string }}
   .post-body
     {{ content }}

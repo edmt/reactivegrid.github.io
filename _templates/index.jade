@@ -11,9 +11,7 @@
   .post-data
     span by
       a(href='#'){{post.author }}
-      | on {{ post.date | date_to_string }}
-    br
-    br
+      | — {{ post.date | date_to_string }}
   .post-body
     {{ post.content }}
 {% endfor %}
