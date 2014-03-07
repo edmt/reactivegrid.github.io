@@ -15,7 +15,6 @@ html {
 }
 
 body {
-  background-color: rgba(236, 240, 241,0.1);
   @extend %normal-wrap;
   color: $body-copy-color;
 }
