@@ -52,11 +52,7 @@ gulp.task 'templates', ->
     .pipe(gulp.dest('./'))
 
 # Build
-# 1. Cleans .tmp and _site folders
-# 2. Compiles Jade, CoffeeScript and Sass
-gulp.task 'build', ['clean'], ->
-  gulp.start(['templates', 'styles', 'scripts'])
-  gulp.src('./').pipe($.exec('jekyll build'))
+gulp.task 'build', ['clean', 'templates', 'styles', 'scripts', 'coffee']
 
 # Watch
 # Watches for changes in the styles, scripts and markup
