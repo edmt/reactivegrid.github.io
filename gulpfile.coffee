@@ -60,9 +60,7 @@ gulp.task 'build', ['clean'], ->
 
 # Watch
 # Watches for changes in the styles, scripts and markup
-gulp.task 'watch', ->
-  gulp.start('build')
-
+gulp.task 'watch', ['build'], ->
   gulp.watch('_scss/**/*.scss', ['styles'])
   gulp.watch('_scripts/**/*.coffee', ['coffee'])
   gulp.watch('_scripts/**/*.js', ['scripts'])
