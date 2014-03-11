@@ -5,16 +5,18 @@ $    = require('gulp-load-plugins')()
 
 #########
 
+paths =
+  js: ['_scripts/jquery.js', '_scripts/bootstrap.js']
+  coffee: ['_scripts/**/*.coffee']
+  jekyll: ['css/', 'js/', '_layouts/', '_includes/', 'archive/', 'team/', 'index.html']
+
 # Clean
-# Removes .tmp folder
 gulp.task 'clean', ->
   gulp
-    .src(['.tmp/', '_site/'], {read: false})
+    .src(paths.jekyll, read: false )
     .pipe($.clean())
 
 # Styles
-# 1. Compiles all Sass (scss) files under the _scss folder
-# 2. Minifies main.css file whit clean-css
 gulp.task 'styles', ->
   gulp
     .src('_scss/main.scss')
@@ -23,46 +25,39 @@ gulp.task 'styles', ->
     .pipe(gulp.dest('css/'))
 
 # Coffee
-# Compiles all the CoffeeScript files under the _scripts folder
 gulp.task 'coffee', ->
   gulp
-    .src('_scripts/**/*.coffee')
+    .src(paths.coffee)
     .pipe($.plumber())
     .pipe($.coffee({ bare: true }))
-    .pipe(gulp.dest('.tmp/'))
+    .pipe($.concat('main.js'))
+    .pipe(gulp.dest('js/'))
 
 # Scripts
-# 1. Concatenates JS files under .tmp and _scripts folders in to main.js file
-# 2. Minifies main.js with uglify.js
-gulp.task 'scripts', ['coffee'], ->
+gulp.task 'scripts', ->
   gulp
-    .src(['_scripts/**/*.js', '.tmp/**/*.js'])
+    .src(paths.js)
     .pipe($.plumber())
-    .pipe($.concat('main.js'))
+    .pipe($.concat('vendor.js'))
     .pipe($.uglify())
     .pipe(gulp.dest('js/'))
 
 # Templates
-# Compiles all the Jade templates under the _templates folder
 gulp.task 'templates', ->
   gulp
     .src('_templates/**/*.jade')
-    .pipe($.jade({ pretty: true }))
     .pipe($.plumber())
+    .pipe($.jade({ pretty: true }))
     .pipe(gulp.dest('./'))
 
 # Build
-# 1. Cleans .tmp and _site folders
-# 2. Compiles Jade, CoffeeScript and Sass
-gulp.task 'build', ['clean'], ->
-  gulp.start(['templates', 'styles', 'scripts'])
-  gulp.src('./').pipe($.exec('jekyll build'))
+gulp.task 'build', ['clean', 'templates', 'styles', 'scripts', 'coffee']
 
 # Watch
-# Watches for changes in the styles, scripts and markup
 gulp.task 'watch', ['build'], ->
-  gulp.watch('_scss/main.scss', ['styles'])
-  gulp.watch('_scripts/**/*.coffee', ['scripts'])
+  gulp.watch('_scss/**/*.scss', ['styles'])
+  gulp.watch('_scripts/**/*.coffee', ['coffee'])
+  gulp.watch('_scripts/**/*.js', ['scripts'])
   gulp.watch('_templates/**/*.jade', ['templates'])
 
 # Default

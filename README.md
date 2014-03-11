@@ -25,4 +25,4 @@ The order in which you run the commands doesn't matter.
 =====
 
 ###Quick start
-Run ```jekyll serve``` and go to ```http://0.0.0.0:4000``` on your browser.
+Run ```jekyll serve``` and go to ```http://0.0.0.0:5247``` on your browser.

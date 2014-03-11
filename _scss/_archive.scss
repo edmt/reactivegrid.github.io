@@ -1,0 +1,20 @@
+#archive-container {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  span {
+    font-family: 'Cambo', serif;
+    color: rgba(189, 195, 199,1.0);
+  }
+
+  a {
+    color: rgba(41, 128, 185,1.0);
+  }
+}
