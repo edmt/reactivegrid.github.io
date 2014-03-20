@@ -21,6 +21,7 @@ gulp.task 'clean', ->
 gulp.task 'styles', ->
   gulp
     .src('_scss/main.scss')
+    .pipe($.changed('css/'))
     .pipe($.plumber())
     .pipe($.rubySass( style: 'compressed' ))
     .pipe(gulp.dest('css/'))
@@ -29,6 +30,7 @@ gulp.task 'styles', ->
 gulp.task 'coffee', ->
   gulp
     .src(paths.coffee)
+    .pipe($.changed('js/', extension: '.coffee'))
     .pipe($.plumber())
     .pipe($.coffee({ bare: true }))
     .pipe($.concat('main.js'))
@@ -38,6 +40,7 @@ gulp.task 'coffee', ->
 gulp.task 'scripts', ->
   gulp
     .src(paths.js)
+    .pipe($.changed('js/', extension: '.js'))
     .pipe($.plumber())
     .pipe($.concat('vendor.js'))
     .pipe($.uglify())
@@ -47,6 +50,7 @@ gulp.task 'scripts', ->
 gulp.task 'templates', ->
   gulp
     .src('_templates/**/*.jade')
+    .pipe($.changed('./', extension: '.html'))
     .pipe($.plumber())
     .pipe($.jade({ pretty: true }))
     .pipe(gulp.dest('./'))
