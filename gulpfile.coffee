@@ -8,7 +8,7 @@ $    = require('gulp-load-plugins')()
 paths =
   js: ['_scripts/jquery.js', '_scripts/bootstrap.js']
   coffee: ['_scripts/**/*.coffee']
-  jekyll: ['css/', 'js/', '_layouts/', '_includes/', 'archive/', 'team/', 'index.html']
+  jekyll: ['css/', 'js/', '_layouts/', '_includes/', 'archive/', 'team/', 'index.html', '_site/']
 
 # Clean
 gulp.task 'clean', ->
