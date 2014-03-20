@@ -1,7 +1,8 @@
 'use strict'
 
-gulp = require('gulp')
-$    = require('gulp-load-plugins')()
+gulp  = require('gulp')
+$     = require('gulp-load-plugins')()
+spawn = require('child_process').spawn;
 
 #########
 
@@ -50,8 +51,13 @@ gulp.task 'templates', ->
     .pipe($.jade({ pretty: true }))
     .pipe(gulp.dest('./'))
 
+# Jekyll
+gulp.task 'jekyll', ->
+  spawn('jekyll', ['serve', '-w'], stdio: 'inherit')
+
 # Build
-gulp.task 'build', ['clean', 'templates', 'styles', 'scripts', 'coffee']
+gulp.task 'build', ['clean', 'templates', 'styles', 'scripts', 'coffee'], ->
+  gulp.start('jekyll')
 
 # Watch
 gulp.task 'watch', ['build'], ->
