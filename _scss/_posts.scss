@@ -27,7 +27,7 @@
 
     a {
       margin: 0 5px 0 5px;
-      color: rgba(189, 195, 199,1.0);
+      color: $body-copy-color;
 
       &:hover {
         color: rgba(41, 128, 185,1.0);
@@ -41,7 +41,7 @@
     font-size: 20px;
 
     a {
-      color: rgba(189, 195, 199,1.0);
+      color: $body-copy-color;
 
       &:hover {
         color: rgba(41, 128, 185,1.0);
