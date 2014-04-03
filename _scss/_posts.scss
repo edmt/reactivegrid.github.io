@@ -28,9 +28,12 @@
     a {
       margin: 0 5px 0 5px;
       color: $body-copy-color;
+      border-bottom: 1px solid rgba(70, 176, 96,.8);
 
       &:hover {
-        color: rgba(41, 128, 185,1.0);
+        color: rgba(70, 176, 96,.8);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(70, 176, 96,.8);
       }
     }
   }
@@ -42,9 +45,12 @@
 
     a {
       color: $body-copy-color;
+      border-bottom: 1px solid rgba(70, 176, 96,.8);
 
       &:hover {
-        color: rgba(41, 128, 185,1.0);
+        color: rgba(70, 176, 96,.8);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(70, 176, 96,.8);
       }
     }
   }
