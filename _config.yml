@@ -3,7 +3,7 @@ description: The Reactive Grid Blog
 
 permalink: /:year/:month/:day/:title
 paginate: 5
-markdown: maruku
+markdown: kramdown
 pygments: true
 
 port: 5247
