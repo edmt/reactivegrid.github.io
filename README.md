@@ -14,13 +14,7 @@ npm install -g gulp
 =====
 
 ###Plugins and dependencies
-The order in which you run the commands doesn't matter.
-
-**gulp plugins:** ``` npm install ```
-
-**Bower dependencies:** ``` bower install ```
-
-**Jekyll:** ``` bundle install ```
+Run ``` npm install ```, when it finishes downloading node dependencies, it will automatically run  ``` bower install ``` and ``` bundle install ``` commands
 
 =====
 
