@@ -1,6 +1,6 @@
 {
   "name": "reactivegrid.github.io",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "ReactiveGrid's blog",
   "main": "gulpfile.coffee",
   "scripts": {
