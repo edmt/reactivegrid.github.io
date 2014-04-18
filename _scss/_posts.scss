@@ -16,7 +16,11 @@
 
   .post-title{
     a {
-      color: rgba(52, 73, 94,0.8);
+      color: $body-copy-color;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
@@ -28,12 +32,13 @@
     a {
       margin: 0 5px 0 5px;
       color: $body-copy-color;
-      border-bottom: 1px solid rgba(70, 176, 96,.8);
+      padding-bottom: 2px;
+      border-bottom: 2px solid rgba(45, 117, 186,.9);
 
       &:hover {
-        color: rgba(70, 176, 96,.8);
+        color: rgba(45, 117, 186,.9);
         text-decoration: none;
-        border-bottom: 1px solid rgba(70, 176, 96,.8);
+        border-bottom: 2px solid rgba(45, 117, 186,.9);
       }
     }
   }
@@ -45,12 +50,12 @@
 
     a {
       color: $body-copy-color;
-      border-bottom: 1px solid rgba(70, 176, 96,.8);
+      padding-bottom: 2px;
+      border-bottom: 2px solid rgba(45, 117, 186,.9);
 
       &:hover {
-        color: rgba(70, 176, 96,.8);
+        color: rgba(45, 117, 186,.9);
         text-decoration: none;
-        border-bottom: 1px solid rgba(70, 176, 96,.8);
       }
     }
   }
