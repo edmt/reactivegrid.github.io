@@ -16,35 +16,46 @@
 
   .post-title{
     a {
-      color: rgba(52, 73, 94,0.8);
+      color: $body-copy-color;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
   .post-data {
-    font-family: 'Cambo', serif;
+    font-family: 'Merriweather', serif;
     font-size: 20px;
     margin-bottom: 30px;
 
     a {
       margin: 0 5px 0 5px;
-      color: rgba(189, 195, 199,1.0);
+      color: $body-copy-color;
+      padding-bottom: 2px;
+      border-bottom: 2px solid rgba(45, 117, 186,.9);
 
       &:hover {
-        color: rgba(41, 128, 185,1.0);
+        color: rgba(45, 117, 186,.9);
+        text-decoration: none;
+        border-bottom: 2px solid rgba(45, 117, 186,.9);
       }
     }
   }
 
   .post-body {
     text-align: justify;
-    font-family: 'Cambo', serif;
+    font-family: 'Merriweather', serif;
     font-size: 20px;
 
     a {
-      color: rgba(189, 195, 199,1.0);
+      color: $body-copy-color;
+      padding-bottom: 2px;
+      border-bottom: 2px solid rgba(45, 117, 186,.9);
 
       &:hover {
-        color: rgba(41, 128, 185,1.0);
+        color: rgba(45, 117, 186,.9);
+        text-decoration: none;
       }
     }
   }
